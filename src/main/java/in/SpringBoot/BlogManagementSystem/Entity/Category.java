@@ -3,6 +3,8 @@ package in.SpringBoot.BlogManagementSystem.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -20,4 +22,7 @@ public class Category {
 
     @Column(nullable = false, unique = true)
     private String name;
+
+    @OneToMany(mappedBy = "category", orphanRemoval = true)
+    private List<Post> posts = new ArrayList<>();
 }
