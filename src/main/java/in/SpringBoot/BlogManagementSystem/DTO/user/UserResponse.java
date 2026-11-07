@@ -1,5 +1,6 @@
 package in.SpringBoot.BlogManagementSystem.DTO.user;
 
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,6 +17,7 @@ import java.util.UUID;
 @Builder
 public class UserResponse {
     private UUID id;
+    @Email
     private String email;
     private String name;
     private LocalDateTime createdAt;
