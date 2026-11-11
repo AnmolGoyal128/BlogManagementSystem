@@ -1,14 +1,14 @@
 package in.SpringBoot.BlogManagementSystem.Controller;
 
+import in.SpringBoot.BlogManagementSystem.DTO.category.CategoryCreateRequest;
 import in.SpringBoot.BlogManagementSystem.DTO.category.CategoryResponse;
 import in.SpringBoot.BlogManagementSystem.Entity.Category;
 import in.SpringBoot.BlogManagementSystem.Repository.CategoryRepository;
 import in.SpringBoot.BlogManagementSystem.Service.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +25,12 @@ public class CategoryController {
 
         return ResponseEntity.ok(categories);
 
+    }
+    @PostMapping
+    public ResponseEntity<CategoryCreateRequest> createCategory(@Valid @RequestBody
+                                                                CategoryCreateRequest categoryCreateRequest){
+        // TODO
+        return ResponseEntity.ok(categoryCreateRequest);
     }
 
 }

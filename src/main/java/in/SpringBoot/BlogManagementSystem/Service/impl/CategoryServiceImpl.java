@@ -1,5 +1,6 @@
 package in.SpringBoot.BlogManagementSystem.Service.impl;
 
+import in.SpringBoot.BlogManagementSystem.DTO.category.CategoryCreateRequest;
 import in.SpringBoot.BlogManagementSystem.DTO.category.CategoryResponse;
 import in.SpringBoot.BlogManagementSystem.Entity.Category;
 import in.SpringBoot.BlogManagementSystem.Repository.CategoryRepository;
@@ -17,5 +18,14 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<CategoryResponse> listCategories() {
         return categoryRepository.findAllWithPostCount();
+    }
+
+    @Override
+    public CategoryCreateRequest createCategory(CategoryCreateRequest categoryCreateRequest) {
+        String categoryName = categoryCreateRequest.getName();
+        if (categoryRepository.existsByNameIgnoreCase(categoryName)) {
+            throw new IllegalArgumentException("Category with name '" + categoryName + "' already exists.");
+        }
+        return categoryRepository.save(CategoryCreateRequest);
     }
 }
