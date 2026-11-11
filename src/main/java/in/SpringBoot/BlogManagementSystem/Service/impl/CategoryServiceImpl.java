@@ -23,9 +23,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryCreateRequest createCategory(CategoryCreateRequest categoryCreateRequest) {
         String categoryName = categoryCreateRequest.getName();
-        if (categoryRepository.existsByNameIgnoreCase(categoryName)) {
-            throw new IllegalArgumentException("Category with name '" + categoryName + "' already exists.");
-        }
-        return categoryRepository.save(CategoryCreateRequest);
+//        if (categoryRepository.existsByNameIgnoreCase(categoryName)) {
+//            throw new IllegalArgumentException("Category with name '" + categoryName + "' already exists.");
+//        }
+//        return categoryRepository.save(CategoryCreateRequest);
+        return categoryCreateRequest;
     }
 }
