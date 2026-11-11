@@ -1,13 +1,9 @@
 package in.SpringBoot.BlogManagementSystem.DTO.category;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
-
+@Data
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,4 +12,5 @@ import java.util.UUID;
 public class CategoryResponse {
     private UUID id;
     private String name;
+    private long postCount;
 }
